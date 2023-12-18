@@ -69,13 +69,19 @@
     width: 100%;
   }
   .Dashboard-card {
-    width: 100%;
+    width: 91%;
+    padding: 1rem;
+
   }
 
   .Card-btn {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .part1{
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: auto auto;
   }
+
 }

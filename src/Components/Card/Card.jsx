@@ -13,7 +13,7 @@ const Card = () => {
 
       <div className="card-model-content">
         <p>COLLUSION x003 tapered jeans in light blue</p>
-        <span>£22.99</span>
+        <span class="WebRupee">&#x20B9; 399</span>
       </div>
     </div>
   );
