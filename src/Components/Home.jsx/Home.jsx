@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Dashboard from "../Dashboard/Dashboard";
 import men from "../../Images/men.png";
@@ -6,92 +6,26 @@ import women from "../../Images/women.png";
 import kids from "../../Images/kids.png";
 import footer from "../../Images/footwear.png";
 import Card from "../Card/Card";
-import modelImage from "../../Images/Model.png";
+// import modelImage from "../../Images/Model.png";
 
 const Home = () => {
-  const Product = [
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-    {
-      image: modelImage,
-      desc: "COLLUSION x003 tapered jeans in light blue",
-      price: "£22.99",
-    },
-  ];
 
+  const [products, setProducts] = useState([])
+
+
+  useEffect(() => {
+    const getAllProdcuts = async () => {
+      const allProducts = await fetch(`http://localhost:8000/product/get-all-products`,).then(res => res).then(res => res.json()).catch((err) => {
+        console.log("Error", err)
+      })
+      console.log(allProducts)
+      setProducts(allProducts)
+
+
+      
+    }
+    getAllProdcuts()
+  }, [])
   return (
     <div className="Home-main">
       <div className="Home-upper-sec">
@@ -115,12 +49,11 @@ const Home = () => {
           </div>
         </div>
       </div>
-     
+
       <div className="product-section">
-        
-        {
-          Product.map((items) => <Card items={items}/>)
-        }
+        {products.map((items) => (
+          <Card items={items} />
+        ))}
       </div>
     </div>
   );

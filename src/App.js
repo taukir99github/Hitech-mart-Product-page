@@ -1,26 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Home from './Components/Home.jsx/Home'
-import { IoIosHeartEmpty } from 'react-icons/io';
-import modelImg from './Images/Model.png'
+
 import './App.css'
 
 const App = () => {
 
-  const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   // Simulate a delay for demonstration purposes
-  //   const timer = setTimeout(() => {
-  //     setLoading(false);
-  //   }, 3000);
-
-  //   return () => clearTimeout(timer);
-  // }, []);
 
   return (
     <div>
-    <Home/>
-    {/* <div className={`product-card ${loading ? "loading" : ""}`}>
+      <Home/>
+      {/* <div className={`product-card ${loading ? "loading" : ""}`}>
       {loading ? (
         <div className="skeleton-loader"></div>
       ) : (
@@ -38,9 +28,9 @@ const App = () => {
       )}
     </div> */}
 
-   
+
     </div>
   )
-} 
+}
 
 export default App

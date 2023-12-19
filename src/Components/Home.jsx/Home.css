@@ -1,6 +1,7 @@
 .Home-main {
   width: 100%;
   padding: 24px;
+  background: #F4F4FF;
 }
 .Home-upper-sec {
   width: 100%;
@@ -30,6 +31,7 @@
   gap: 2.5rem;
   padding: 5rem 2rem;
 }
+
 @media (max-width: 600px) {
   .Home-main {
     width: 100%;

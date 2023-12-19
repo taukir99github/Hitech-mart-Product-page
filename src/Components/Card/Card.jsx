@@ -3,17 +3,21 @@ import "./Card.css";
 import { IoIosHeartEmpty } from "react-icons/io";
 import modelImg from "../../Images/Model.png";
 
-const Card = () => {
+const Card = ({ items }) => {
   return (
     <div className="product-card">
       <div className="card-wrapper">
-        <img src={modelImg} alt="" />
+        {items.productDetails[0]?.images[0] ? (
+          <img src={items.productDetails[0].images[0]} alt="" />
+        ) : (
+          <img src={modelImg} alt="" />
+        )}
         <IoIosHeartEmpty className="heart-icon" />
       </div>
 
       <div className="card-model-content">
-        <p>COLLUSION x003 tapered jeans in light blue</p>
-        <span class="WebRupee">&#x20B9; 399</span>
+        <p>{items.title}</p>
+        <span class="WebRupee">&#x20B9; {items.realPrice}</span>
       </div>
     </div>
   );
