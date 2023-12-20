@@ -7,24 +7,25 @@ import kids from "../../Images/kids.png";
 import footer from "../../Images/footwear.png";
 import Card from "../Card/Card";
 // import modelImage from "../../Images/Model.png";
+import {products} from './Products'
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const getAllProdcuts = async () => {
-      try {
-        const allProducts = await fetch(
-          `http://localhost:8000/product/get-all-products`
-        ).then((res) => res).then(res => res.json()).catch(err => err);
-        console.log(allProducts);
-        setProducts(allProducts);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getAllProdcuts();
-  }, []);
+  // useEffect(() => {
+  //   const getAllProdcuts = async () => {
+  //     try {
+  //       const allProducts = await fetch(
+  //         `http://localhost:8000/product/get-all-products`
+  //       ).then((res) => res).then(res => res.json()).catch(err => err);
+  //       console.log(allProducts);
+  //       setProducts(allProducts);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   getAllProdcuts();
+  // }, []);
 
   return (
     <div className="Home-main">
