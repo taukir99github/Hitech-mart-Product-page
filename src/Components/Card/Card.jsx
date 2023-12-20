@@ -7,8 +7,8 @@ const Card = ({ items }) => {
   return (
     <div className="product-card">
       <div className="card-wrapper">
-        {items.productDetails[0]?.images[0] ? (
-          <img src={items.productDetails[0].images[0]} alt="" />
+        {items?.image[0] ? (
+          <img src={items.image[0]} alt="" />
         ) : (
           <img src={modelImg} alt="" />
         )}
@@ -17,7 +17,7 @@ const Card = ({ items }) => {
 
       <div className="card-model-content">
         <p>{items.title}</p>
-        <span class="WebRupee">&#x20B9; {items.realPrice}</span>
+        <span className="WebRupee">&#x20B9; {items.sellingPrice}</span>
       </div>
     </div>
   );

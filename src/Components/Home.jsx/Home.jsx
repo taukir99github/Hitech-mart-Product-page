@@ -9,23 +9,23 @@ import Card from "../Card/Card";
 // import modelImage from "../../Images/Model.png";
 
 const Home = () => {
-
-  const [products, setProducts] = useState([])
-
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const getAllProdcuts = async () => {
-      const allProducts = await fetch(`http://localhost:8000/product/get-all-products`,).then(res => res).then(res => res.json()).catch((err) => {
-        console.log("Error", err)
-      })
-      console.log(allProducts)
-      setProducts(allProducts)
+      try {
+        const allProducts = await fetch(
+          `http://localhost:8000/product/get-all-products`
+        ).then((res) => res).then(res => res.json()).catch(err => err);
+        console.log(allProducts);
+        setProducts(allProducts);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAllProdcuts();
+  }, []);
 
-
-      
-    }
-    getAllProdcuts()
-  }, [])
   return (
     <div className="Home-main">
       <div className="Home-upper-sec">
@@ -50,10 +50,18 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="product-section">
-        {products.map((items) => (
-          <Card items={items} />
-        ))}
+      <div className="Home-content">
+        <div className="Home-total-items">
+          <strong className="d-block py-2">
+            Total {products.length} items
+          </strong>
+        </div>
+
+        <div className="product-section">
+          {products.length && products.map((items) => (
+            <Card items={items} key={items._id} />
+          ))}
+        </div>
       </div>
     </div>
   );
